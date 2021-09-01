@@ -38,15 +38,43 @@ function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min) + min); 
 }
 
-for (let i = 0; i < 16; i++){
-    bombe.push(randomNumber(1,101));
+while (bombe.length < 10){
+
+    let bombaRandom = randomNumber(1,20);
+
+    if (bombe.includes(bombaRandom)){
+        bombe.length < 10;
+    }else {
+        bombe.push(bombaRandom);
+    }
 }
+
+let haiPerso = false;
 
 console.log(bombe);
 
-while ((numeriUtente.length + bombe.length) < 20){
-    numeriUtente.push(parseInt(prompt("Inserisci un numero.. hihihi..")));
-    if (numeriUtente[i] == bombe[i])
+while ((numeriUtente.length + bombe.length) < 20 && !haiPerso){
+
+    let numeroCorrente = parseInt(prompt("Inserisci un numero.. hihihi.."));
+
+    if (bombe.includes(numeroCorrente)){
+        alert("KABOOOMMM!!!")
+        haiPerso = true
+    }else if (numeriUtente.includes(numeroCorrente)){
+        alert("hai già inserito questo numero");
+    }else if (isNaN(numeroCorrente)){
+        alert("inserisci un numero da 1 a 100 nient'alrto");
+    }else {
+        numeriUtente.push(numeroCorrente);
+    }
 }
+
+if (haiPerso = true){
+    console.log("il tuo punteggio è di " + numeriUtente.length + " Game over" );
+}else if (numeriUtente.length == 10){
+    console.log("Complimenti sei scampato alla morte! Le bombe erano.. " + bombe);
+}
+
+
 
 console.log(numeriUtente)
