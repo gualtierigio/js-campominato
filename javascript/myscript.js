@@ -27,3 +27,26 @@
     // # ENDGAME
     // a. Stampiamo il messaggio di alert del gioco (se hai vinto o perso)
     // b. Stampiamo il punteggio del giocatore 
+
+let bombe = [];
+
+let numeriUtente = []
+
+function randomNumber(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min); 
+}
+
+for (let i = 0; i < 16; i++){
+    bombe.push(randomNumber(1,101));
+}
+
+console.log(bombe);
+
+while ((numeriUtente.length + bombe.length) < 20){
+    numeriUtente.push(parseInt(prompt("Inserisci un numero.. hihihi..")));
+    if (numeriUtente[i] == bombe[i])
+}
+
+console.log(numeriUtente)
