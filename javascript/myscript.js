@@ -43,16 +43,23 @@ function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min) + min); 
 }
 
+//*Inserisco un detyerminato numero di bombe con un range di numeri casuali*/
+
 while (bombe.length < quantitaBombe){
 
     let bombaRandom = randomNumber(1, caselleTotali + 1);
 
     if (bombe.includes(bombaRandom)){
+
         bombe.length < quantitaBombe;
+
     }else {
+
         bombe.push(bombaRandom);
     }
 }
+
+//*Controllo se il giocatore inserisce i numeri correttamente o se perde*/
 
 let haiPerso = false;
 
@@ -63,29 +70,59 @@ while ((numeriUtente.length + bombe.length) <= 100 && !haiPerso){
     let numeroCorrente = parseInt(prompt("Inserisci un numero.. hihihi.."));
 
     if (bombe.includes(numeroCorrente)){
-        alert("KABOOOMMM!!!")
-        haiPerso = true
+
+        alert("KABOOOMMM!!!");
+
+        haiPerso = true;
+
     }else if (numeriUtente.includes(numeroCorrente)){
+
         alert("hai già inserito questo numero");
+
     }else if (isNaN(numeroCorrente) || numeroCorrente < 1 || numeroCorrente > 100){
+
         alert("inserisci un numero da 1 a 100 nient'alrto");
+
     }else {
+
         numeriUtente.push(numeroCorrente);
     }
 }
 
+//*Stampa del risultato*/
+
 
 if (numeriUtente.length == caselleTotali - quantitaBombe){
+
     punteggio(numeriUtente.length)
+
     console.log("Complimenti sei scampato alla morte! Le bombe erano.. " + bombe);
+
 }else if (haiPerso == true && numeriUtente.length == 0){
+
+    bombaGameOver(numeroCorrente, bombe);
+
     console.log("Complimenti!! Hai perso al primo colpo, you rock!" );
+
 }else if (haiPerso == true){
+
     punteggio(numeriUtente.length)
+
     console.log("il tuo punteggio è di " + numeriUtente.length + " Game over" );
 }
 
 function punteggio(numeriInseriti){
+
     numeriInseriti = numeriUtente.length;
+
     return console.log("i numeri che hai inserito sono " + numeriUtente)
+}
+
+function bombaGameOver(numberToCheck, bombsToCheck){
+
+    if (bombsToCheck.includes(numberToCheck)){
+
+        return console.log("La bomba che ti ha fatto saltare è la numero " + numberToCheck);
+    }
+    return "";
 }
