@@ -32,13 +32,15 @@ let bombe = [];
 
 let numeriUtente = []
 
+let quantitaBombe = 16;
+
 function randomNumber(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min) + min); 
 }
 
-while (bombe.length < 16){
+while (bombe.length < quantitaBombe){
 
     let bombaRandom = randomNumber(1,101);
 
