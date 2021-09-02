@@ -34,6 +34,9 @@ let numeriUtente = []
 
 let quantitaBombe = 16;
 
+let caselleTotali = 100;
+
+
 function randomNumber(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -42,10 +45,10 @@ function randomNumber(min, max) {
 
 while (bombe.length < quantitaBombe){
 
-    let bombaRandom = randomNumber(1,101);
+    let bombaRandom = randomNumber(1, caselleTotali + 1);
 
     if (bombe.includes(bombaRandom)){
-        bombe.length < 16;
+        bombe.length < quantitaBombe;
     }else {
         bombe.push(bombaRandom);
     }
@@ -72,11 +75,17 @@ while ((numeriUtente.length + bombe.length) <= 100 && !haiPerso){
 }
 
 
-if (numeriUtente.length == 84){
+if (numeriUtente.length == caselleTotali - quantitaBombe){
+    punteggio(numeriUtente.length)
     console.log("Complimenti sei scampato alla morte! Le bombe erano.. " + bombe);
+}else if (haiPerso == true && numeriUtente.length == 0){
+    console.log("Complimenti!! Hai perso al primo colpo, you rock!" );
 }else if (haiPerso == true){
+    punteggio(numeriUtente.length)
     console.log("il tuo punteggio è di " + numeriUtente.length + " Game over" );
 }
 
-
-console.log("i numeri che hai inserito sono " + numeriUtente)
+function punteggio(numeriInseriti){
+    numeriInseriti = numeriUtente.length;
+    return console.log("i numeri che hai inserito sono " + numeriUtente)
+}
