@@ -69,12 +69,12 @@ while ((numeriUtente.length + bombe.length) < 20 && !haiPerso){
     }
 }
 
-if (haiPerso = true){
-    console.log("il tuo punteggio è di " + numeriUtente.length + " Game over" );
-}else if (numeriUtente.length = 10){
+
+if (numeriUtente.length == 10){
     console.log("Complimenti sei scampato alla morte! Le bombe erano.. " + bombe);
+}else if (haiPerso == true){
+    console.log("il tuo punteggio è di " + numeriUtente.length + " Game over" );
 }
 
 
-
-console.log(numeriUtente)
+console.log("i numeri che hai inserito sono " + numeriUtente)
