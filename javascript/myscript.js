@@ -38,12 +38,12 @@ function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min) + min); 
 }
 
-while (bombe.length < 10){
+while (bombe.length < 16){
 
-    let bombaRandom = randomNumber(1,20);
+    let bombaRandom = randomNumber(1,101);
 
     if (bombe.includes(bombaRandom)){
-        bombe.length < 10;
+        bombe.length < 16;
     }else {
         bombe.push(bombaRandom);
     }
@@ -53,7 +53,7 @@ let haiPerso = false;
 
 console.log(bombe);
 
-while ((numeriUtente.length + bombe.length) < 20 && !haiPerso){
+while ((numeriUtente.length + bombe.length) <= 100 && !haiPerso){
 
     let numeroCorrente = parseInt(prompt("Inserisci un numero.. hihihi.."));
 
@@ -62,7 +62,7 @@ while ((numeriUtente.length + bombe.length) < 20 && !haiPerso){
         haiPerso = true
     }else if (numeriUtente.includes(numeroCorrente)){
         alert("hai già inserito questo numero");
-    }else if (isNaN(numeroCorrente)){
+    }else if (isNaN(numeroCorrente) || numeroCorrente < 1 || numeroCorrente > 100){
         alert("inserisci un numero da 1 a 100 nient'alrto");
     }else {
         numeriUtente.push(numeroCorrente);
@@ -70,7 +70,7 @@ while ((numeriUtente.length + bombe.length) < 20 && !haiPerso){
 }
 
 
-if (numeriUtente.length == 10){
+if (numeriUtente.length == 84){
     console.log("Complimenti sei scampato alla morte! Le bombe erano.. " + bombe);
 }else if (haiPerso == true){
     console.log("il tuo punteggio è di " + numeriUtente.length + " Game over" );
