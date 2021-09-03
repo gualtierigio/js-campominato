@@ -67,7 +67,7 @@ switch (level) {
 
     default:
 
-        level = 10
+        quantitaBombe = 10;
 
         console.log("bravo/a vacci piano");
   }
@@ -80,7 +80,7 @@ function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min) + min); 
 }
 
-//*Inserisco un detyerminato numero di bombe con un range di numeri casuali*/
+//*Inserisco un determinato numero di bombe con un range di numeri casuali*/
 
 while (bombe.length < quantitaBombe){
 
