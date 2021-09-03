@@ -32,9 +32,46 @@ let bombe = [];
 
 let numeriUtente = []
 
-let quantitaBombe = 16;
+let quantitaBombe 
 
 let caselleTotali = 100;
+
+let level = prompt("scegli il livello tra: easy, normal, hard");
+
+
+
+switch (level) {
+
+    case 'easy':
+
+        quantitaBombe = 10;
+
+        console.log("bravo/a vacci piano");
+
+      break;
+
+    case 'normal':
+
+        quantitaBombe = 25;
+
+        console.log();
+
+      break;
+    case 'hard':
+
+        quantitaBombe = 60;
+
+        console.log();
+
+      break;
+
+    default:
+
+        level = 10
+
+        console.log("bravo/a vacci piano");
+  }
+  
 
 
 function randomNumber(min, max) {
@@ -63,11 +100,13 @@ while (bombe.length < quantitaBombe){
 
 let haiPerso = false;
 
+let numeroCorrente
+
 console.log(bombe);
 
 while ((numeriUtente.length + bombe.length) <= 100 && !haiPerso){
 
-    let numeroCorrente = parseInt(prompt("Inserisci un numero.. hihihi.."));
+    numeroCorrente = parseInt(prompt("Inserisci un numero da 1 a 100 hihihi.."));
 
     if (bombe.includes(numeroCorrente)){
 
@@ -106,6 +145,8 @@ if (numeriUtente.length == caselleTotali - quantitaBombe){
 
 }else if (haiPerso == true){
 
+    bombaGameOver(numeroCorrente, bombe);
+
     punteggio(numeriUtente.length)
 
     console.log("il tuo punteggio è di " + numeriUtente.length + " Game over" );
@@ -118,11 +159,12 @@ function punteggio(numeriInseriti){
     return console.log("i numeri che hai inserito sono " + numeriUtente)
 }
 
-function bombaGameOver(numberToCheck, bombsToCheck){
+function bombaGameOver(numberToCheck, allBombs){
 
-    if (bombsToCheck.includes(numberToCheck)){
+    if (allBombs.includes(numberToCheck)){
 
-        return console.log("La bomba che ti ha fatto saltare è la numero " + numberToCheck);
-    }
-    return "";
+        console.log("La bomba che ti ha fatto saltare è la numero " + numberToCheck);
+
+    }else 
+    console.log("non ha funzionato");
 }
